@@ -197,4 +197,63 @@ fn main() {
         println!("{}", num);
     }
 
+
+
+
+    // getting string input
+    let mut n = String::new();
+    std::io::stdin().read_line(&mut n).expect("failed to get input!..."); // you can now print it but lets see how to cast it...
+    let n: i64 = n.trim().parse().expect("didn't make it!..."); // casted it to integer
+    print!("{n}");
+
+
+
+
+    // if we make a var and not use it it gives us warning, lets fix it:
+    // let mamamia = "hi";
+    // so we will use something like this
+    let _mamamia = "hi";
+    print!("{_mamamia}");
+
+
+
+
+
+    // static is something like a const but...
+    // if you want to store tons of data in a var
+    // static is a better choice!
+    static data: &str = "this is my data";
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
