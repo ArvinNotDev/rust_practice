@@ -218,42 +218,10 @@ fn main() {
 
 
 
-
     // static is something like a const but...
     // if you want to store tons of data in a var
     // static is a better choice!
     static data: &str = "this is my data";
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }
