@@ -365,31 +365,48 @@
 
 
 
-// xX Enums Xx  O_____here_is_how_you_can_define_a_new_type_____O
+// // xX Enums Xx  O_____here_is_how_you_can_define_a_new_type_____O
 
 
-#[derive(PartialEq)] // Derive PartialEq for easy comparison (its neccessary for comparing them like what we did)
-enum Direction {
-    Right,
-    Left,
-}
+// #[derive(PartialEq)] // Derive PartialEq for easy comparison (its neccessary for comparing them like what we did)
+// enum Direction {
+//     Right,
+//     Left,
+// }
 
-fn is_right(dir: &Direction) -> bool {
-    *dir == Direction::Right
-}
+// fn is_right(dir: &Direction) -> bool {
+//     *dir == Direction::Right
+// }
 
-fn is_left(dir: &Direction) -> bool {
-    *dir == Direction::Left
-}
+// fn is_left(dir: &Direction) -> bool {
+//     *dir == Direction::Left
+// }
+
+// fn main() {
+//     let dir = Direction::Right;
+//     let right = is_right(&dir);
+//     let left = is_left(&dir);
+//     println!("Is the direction right? {}", right); // true
+//     println!("Is the direction left? {}", left);   // false
+// }
+
+
+
+///////////////////////////////////////////////////////////////////////
+/// HashMap
+
+
+use std::collections::HashMap;
 
 fn main() {
-    let dir = Direction::Right;
-    let right = is_right(&dir);
-    let left = is_left(&dir);
-    println!("Is the direction right? {}", right); // true
-    println!("Is the direction left? {}", left);   // false
+let mut nima = HashMap::new();
+nima.insert(String::from("maghz"), 0);
+nima.insert(String::from("shour"), 0);
+
+for (key, value) in nima {
+    println!("{}=> {}", key, value)
 }
 
-
+}
 
 
