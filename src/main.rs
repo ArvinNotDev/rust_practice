@@ -399,11 +399,11 @@
 use std::collections::HashMap;
 
 fn main() {
-let mut nima = HashMap::new();
-nima.insert(String::from("maghz"), 0);
-nima.insert(String::from("shour"), 0);
+let mut arvin = HashMap::new();
+arvin.insert(String::from("maghz"), 100);
+arvin.insert(String::from("shour"), 100);
 
-for (key, value) in nima {
+for (key, value) in arvin {
     println!("{}=> {}", key, value)
 }
 
