@@ -316,44 +316,82 @@
 
 
 
-// In this case, we are using `&str` (string slices) instead of `String`.
-// Since `&str` is a reference type, we need to specify lifetimes to ensure the references are valid.
+// // In this case, we are using `&str` (string slices) instead of `String`.
+// // Since `&str` is a reference type, we need to specify lifetimes to ensure the references are valid.
 
-// Define the `Person` struct with a lifetime parameter `'a`.
-// This tells the compiler that the references (`first_name` and `last_name`) must live at least as long as the struct.
-pub struct Person<'a> {
-    first_name: &'a str, // Reference type so we need to set a lifetime
-    last_name: &'a str,  // Reference type so we need to set a lifetime
-    age: i32,            // Owned type, no lifetime needed
+// // Define the `Person` struct with a lifetime parameter `'a`.
+// // This tells the compiler that the references (`first_name` and `last_name`) must live at least as long as the struct.
+// pub struct Person<'a> {
+//     first_name: &'a str, // Reference type so we need to set a lifetime
+//     last_name: &'a str,  // Reference type so we need to set a lifetime
+//     age: i32,            // Owned type, no lifetime needed
+// }
+
+// // The lifetime `'a` must be specified here as well to match the struct definition.
+// impl<'a> Person<'a> {
+
+//     pub fn new(initial_first_name: &'a str, initial_last_name: &'a str, initial_age: i32) -> Self {
+//         Person {
+//             first_name: initial_first_name,
+//             last_name: initial_last_name,
+//             age: initial_age,
+//         }
+//     }
+
+//     // now after initialing them thats same as before...
+
+//     pub fn get_full_name(&self) -> String {
+//         format!("{} {}", self.first_name, self.last_name)
+//     }
+
+//     pub fn get_age(&self) -> i32 {
+//         self.age
+//     }
+// }
+
+// fn main() {
+//     // Create a `Person` instance using string literals (which have the `'static` lifetime).
+//     let p1 = Person::new("Arvin", "Jafari", 20);
+
+//     // Print the full name and age.
+//     println!("Full Name: {}", p1.get_full_name()); // Output: Full Name: Arvin Jafari
+//     println!("Age: {}", p1.get_age());            // Output: Age: 20
+// }
+
+
+
+
+
+
+
+
+// xX Enums Xx  O_____here_is_how_you_can_define_a_new_type_____O
+
+
+#[derive(PartialEq)] // Derive PartialEq for easy comparison (its neccessary for comparing them like what we did)
+enum Direction {
+    Right,
+    Left,
 }
 
-// The lifetime `'a` must be specified here as well to match the struct definition.
-impl<'a> Person<'a> {
+fn is_right(dir: &Direction) -> bool {
+    *dir == Direction::Right
+}
 
-    pub fn new(initial_first_name: &'a str, initial_last_name: &'a str, initial_age: i32) -> Self {
-        Person {
-            first_name: initial_first_name,
-            last_name: initial_last_name,
-            age: initial_age,
-        }
-    }
-
-    // now after initialing them thats same as before...
-
-    pub fn get_full_name(&self) -> String {
-        format!("{} {}", self.first_name, self.last_name)
-    }
-
-    pub fn get_age(&self) -> i32 {
-        self.age
-    }
+fn is_left(dir: &Direction) -> bool {
+    *dir == Direction::Left
 }
 
 fn main() {
-    // Create a `Person` instance using string literals (which have the `'static` lifetime).
-    let p1 = Person::new("Arvin", "Jafari", 20);
-
-    // Print the full name and age.
-    println!("Full Name: {}", p1.get_full_name()); // Output: Full Name: Arvin Jafari
-    println!("Age: {}", p1.get_age());            // Output: Age: 20
+    let dir = Direction::Right;
+    let right = is_right(&dir);
+    let left = is_left(&dir);
+    println!("Is the direction right? {}", right); // true
+    println!("Is the direction left? {}", left);   // false
 }
+
+
+
+
+
+
